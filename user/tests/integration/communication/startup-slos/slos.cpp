@@ -1,7 +1,7 @@
 #include "application.h"
 #include "test.h"
 
-test(particle_publish_publishes_an_event) {
+test(publishes_slo_startup_stats) {
 	unsigned long initial_time = millis();
 	Particle.connect();
     waitUntil(Particle.connected);

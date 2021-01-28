@@ -1,4 +1,4 @@
-suite('SLOs');
+suite('DeviceOS Service Level Objectives (SLOs)');
 
 platform('gen2', 'gen3');
 
