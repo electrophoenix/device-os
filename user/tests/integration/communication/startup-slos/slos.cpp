@@ -1,13 +1,9 @@
 #include "application.h"
 #include "test.h"
 
-test(publishes_slo_startup_stats) {
-	unsigned long initial_time = millis();
-	Particle.connect();
+test(slo_startup_stats) {
+    Particle.connect();
     waitUntil(Particle.connected);
-	unsigned long delta_millis = millis() - initial_time;
-	uint32_t seconds = (uint32_t)(delta_millis / 1000);
-	uint32_t free_mem = System.freeMemory();
-	String stats = String::format("{\"seconds\": %u, \"ram\": %u }", seconds, free_mem);
-	Particle.publish("startup_stats", stats);
+    uint32_t free_mem = System.freeMemory();
+    assertMoreOrEqual(free_mem, 60000);
 }
